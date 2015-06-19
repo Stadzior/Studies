@@ -1,0 +1,7 @@
+
+ID Name Surname Department 
+0 Joe Angry d0 
+1 Geralt NULL d0 
+2 Emhyr Emreis d0 
+NULL Johnny Bravo d0 
+NULL Kamil Stadryniak d0 
