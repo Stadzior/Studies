@@ -101,7 +101,8 @@ namespace TextProcessing
         {
             try
             {
-                string outputFilePath = Directory.GetCurrentDirectory() + "\\output_" + listBoxFiles.SelectedItem.ToString();
+                string fileNameWithExtension = listBoxFiles.SelectedItem.ToString();
+                string outputFilePath = Directory.GetCurrentDirectory() + "\\" + Path.GetFileNameWithoutExtension(fileNameWithExtension) + "_out" + Path.GetExtension(fileNameWithExtension);
                 File.AppendAllText(outputFilePath, textBoxResult.Text);
                 DialogResult shouldOpenTheFile = MessageBox.Show("Poprawnie zapisano plik. Czy otworzyć?", "Sukces!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (shouldOpenTheFile == DialogResult.Yes){
