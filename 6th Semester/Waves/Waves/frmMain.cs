@@ -34,10 +34,13 @@ namespace Waves
             double i = 0;
             while (true)
             {
+                long tick = DateTime.Now.Ticks;
                 RefreshWaves(t);
+                long tock = DateTime.Now.Ticks;
+                TimeSpan timeElapsedOnRefresh = new TimeSpan(tock - tick);
                 i++;
                 SetText(i.ToString());
-                t += 0.1;
+                t += timeElapsedOnRefresh.TotalSeconds;
             }
         }
 
