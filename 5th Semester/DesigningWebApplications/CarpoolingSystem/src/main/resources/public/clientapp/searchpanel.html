@@ -1,0 +1,112 @@
+<script>
+        $("#datepicker").datepicker();//("option", "dateFormat", "yy-mm-dd" );
+        $("#resultsDiv").hide();
+        hideNotifications();
+    function loadSearchResults() {
+        var CityFrom = document.getElementById("CityFrom").value;
+        var CityTo = document.getElementById("CityTo").value;
+        var Date = document.getElementById("datepicker").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                var rows = xhttp.responseText.split(";");
+
+                document.getElementById("searchResults").innerHTML = "";
+                for (var i = 0; i < rows.length; i++) {
+                    document.getElementById("searchResults").innerHTML +=
+                    "<h3>"+rows[i]+"</h3>"+
+                    "<button id=\"joinButton"+i+"\" onclick=\"join("+i+")\">Join</button>";
+                }
+            }
+            if(document.getElementById("searchResults").innerHTML.length>0){
+                $("#searchResultsNotFound").hide();
+                $("#searchResults").show();
+            }
+            else{
+                $("#searchResults").hide();
+                $("#searchResultsNotFound").show();
+            }
+        };
+        xhttp.open("GET", "/search?CityFrom="+CityFrom+"&CityTo="+CityTo+"&Date="+Date, true);
+        xhttp.send();
+        $("#searchResults").accordion({heightStyle: "content"});
+        $("#resultsDiv").show();
+    }
+    function join(IdTrip){
+        if(sessionStorage.loggedIn == 0){
+            showNotification(false,"Musisz być zalogowany aby dołączyć do przejazdu.");
+        }else
+        {
+//            $.post("/joinTrip",
+//                    {
+//                        UserName: 3,
+//                        IdTrip: IdTrip,
+//                        AmountOfSeats: 1
+//                    });
+            document.getElementById("joinButton"+IdTrip).innerHTML = "Cancel";
+            document.getElementById("joinButton"+IdTrip).onclick = cancel(IdTrip);
+            showNotification(true,"Pomyślnie dołączono do przejazdu.");
+        }
+    }
+        function cancel(IdTrip){
+//            $.post("/cancelTrip",
+//                    {
+//                        IdReservation: 5
+//                    });
+
+                document.getElementById("joinButton"+IdTrip).innerHTML = "Join";
+                document.getElementById("joinButton"+IdTrip).onclick = join(IdTrip);
+                showNotification(true,"Pomyślnie opuszczono przejazd.");
+        }
+    function showNotification(success,desc){
+        if(success){
+            document.getElementById("successDesc").innerHTML = desc;
+            $("#successNotification").show();
+        }else{
+            document.getElementById("failureDesc").innerHTML = desc;
+            $("#failureNotification").show();
+        }
+        setTimeout(hideNotifications, 5000);
+    }
+    function hideNotifications(){
+        $("#successNotification").hide();
+        $("#failureNotification").hide();
+    }
+</script>
+<h1>Search for a cheap trip now!</h1>
+<hr>
+<div id="successNotification" class="ui-widget">
+    <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+        <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+            <strong>Sukces!</strong> <p id="successDesc"></p></p>
+    </div>
+</div>
+<div id="failureNotification" class="ui-widget">
+    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+            <strong>Porażka:</strong> <p id="failureDesc"></p></p>
+    </div>
+</div>
+<div class="well" style="margin:auto;">
+
+    <span class="input-group-btn"><input type="text" class="form-control" placeholder="From" id="CityFrom"></span>
+    <span class="input-group-btn"><input type="text" class="form-control" placeholder="To" id="CityTo"></span>
+    <span class="input-group-btn"><input type="datetime" class="form-control" placeholder="Date" id="datepicker" readonly="readonly" style="background-color:white;">
+    </span>
+						<span class="input-group-btn">
+                        <button id="SearchButton" class="btn btn-default" type="button" onclick="loadSearchResults()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+ </span>
+    <div id="resultsDiv">
+    <hr>
+        <h2>Wyniki wyszukiwania</h2>
+        <hr>
+        <div id="searchResults">
+        </div>
+        <div id="searchResultsNotFound">
+            <h3>Nie znaleziono wyników spełniających kryteria.</h3>
+        </div>
+        <hr>
+        </div>
+</div>

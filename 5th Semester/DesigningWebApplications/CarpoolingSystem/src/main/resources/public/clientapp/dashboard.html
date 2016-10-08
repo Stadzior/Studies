@@ -1,0 +1,98 @@
+<h1>Manage your trips!</h1>
+<hr>
+<div class="well" style="margin:auto;">
+    <script>
+        $("#myTrips").accordion();
+        $("#joinedTrips").accordion();
+        $( "#addNewTrip").button();
+        hideNotifications();
+        var CityFrom = document.getElementById("CityFrom").value;
+        var CityTo = document.getElementById("CityTo").value;
+        var Date = document.getElementById("datepicker").value;
+        var xhttpMyTrips = new XMLHttpRequest();
+        xhttpMyTrips.onreadystatechange = function() {
+            if (xhttpMyTrips.readyState == 4 && xhttpMyTrips.status == 200) {
+                var rows = xhttpMyTrips.responseText.split(";");
+                document.getElementById("myTrips").innerHTML = "";
+                for (var i = 0; i < rows.length; i++) {
+                    document.getElementById("myTrips").innerHTML +=
+                            "<h3>"+rows[i]+"</h3>"+
+                            "<button id=\"cancelButton"+i+"\" onclick=\"cancel("+i+")\">Cancel</button>";
+                }
+            }
+        };
+        xhttpMyTrips.open("GET", "/myTrips?OwnerName="+sessionStorage.UserName, true);
+        xhttpMyTrips.send();
+        var xhttpJoinedTrips = new XMLHttpRequest();
+        xhttpJoinedTrips.onreadystatechange = function() {
+            if (xhttpJoinedTrips.readyState == 4 && xhttpJoinedTrips.status == 200) {
+                var rows = xhttpJoinedTrips.responseText.split(";");
+
+                document.getElementById("joinedTrips").innerHTML = "";
+                for (var i = 0; i < rows.length; i++) {
+                    document.getElementById("joinedTrips").innerHTML +=
+                            "<h3>"+rows[i]+"</h3>"+
+                            "<button id=\"cancelButton"+i+"\" onclick=\"cancel("+i+")\">Cancel</button>";
+                }
+            }
+        };
+        xhttpJoinedTrips.open("GET", "/joinedTrips?UserName="+sessionStorage.UserName, true);
+        xhttpJoinedTrips.send();
+        function cancel(IdTrip){
+//                $.post("/cancelTrip",
+//                    {
+//                        IdReservation: 5
+//                    });
+                document.getElementById("cancelButton"+IdTrip).innerHTML = "Cancel";
+
+                showNotification(true,"Pomyślnie usunięto przejazd.");
+        }
+        function join(IdTrip){
+//                $.post("/joinTrip",
+//                        {
+//                            UserName: 3,
+//                            IdTrip: IdTrip,
+//                            AmountOfSeats: 1
+//                        });
+                document.getElementById("joinButton"+IdTrip).innerHTML = "Cancel";
+                //document.getElementById("joinButton"+IdTrip).onclick = cancel(IdTrip);
+
+                showNotification(true,"Pomyślnie dołączono do przejazdu.");
+        }
+        function showNotification(success,desc){
+            if(success){
+                document.getElementById("successDesc").innerHTML = desc;
+                $("#successNotif").show();
+            }else{
+                document.getElementById("failureDesc").innerHTML = desc;
+                $("#failureNotif").show();
+            }
+            setTimeout(hideNotifications, 5000);
+        }
+        function hideNotifications(){
+            $("#successNotif").hide();
+            $("#failureNotif").hide();
+        }
+    </script>
+    <div id="successNotif" class="ui-widget">
+        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                <strong>Sukces!</strong> <p id="successDesc"></p></p>
+        </div>
+    </div>
+    <div id="failureNotif" class="ui-widget">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+            <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                <strong>Porażka:</strong> <p id="failureDesc"></p></p>
+        </div>
+    </div>
+    <h2>Your trips</h2>
+    <button id="addNewTrip">Add new</button>
+    <div id="myTrips">
+    </div>
+
+    <h2>Trips which you have joined</h2>
+    <div id="joinedTrips">
+    </div>
+    <hr>
+</div>
