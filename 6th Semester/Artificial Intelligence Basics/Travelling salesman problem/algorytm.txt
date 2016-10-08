@@ -1,0 +1,13 @@
+1.Wybieram najbli¿szego mo¿liwego do wyboru s¹siada je¿eli nie ma ¿adnego to przechodzê do kroku 4.
+
+2.Je¿eli "zagradzam" drogê do wierzcho³ka startu lub jakiegokolwiek nieodwiedzonego wierzcho³ka to porzucam wybór zaznaczam wierzcho³ek jako niemo¿liwy do wybrania w obecnym kroku i przechodzê do kroku 1.
+
+3.Pokonujê odcinek miêdzy obecnym a wybranym wierzcho³kiem i przechodzê do kroku 1.
+
+4.Je¿eli jestem na starcie to przechodzê do kroku 7.
+
+5.Je¿eli zosta³ do odwiedzenia tylko start to idê do startu i przechodzê do kroku 7.
+
+6.Je¿eli jest odcinek, o który mo¿na siê cofn¹æ to zaznaczam obecny wierzcho³ek jako niemo¿liwy do wybrania w obecnym kroku i cofam ostatni ruch, przechodzê do kroku 1.
+
+7.Koñczê dzia³anie.
