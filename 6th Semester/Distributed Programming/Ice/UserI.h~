@@ -1,0 +1,14 @@
+#include <chat.h>
+#include <string.h>
+
+using namespace Chat;
+using namespace std;
+using namespace Ice;
+
+class UserI : public User {
+public:
+	virtual void sendMessage(const string& message,ChatRoomPrx& room, UserPrx& user, const Current&);
+        virtual void sendPrivateMessage(const string& message, UserPrx& user, const Current&);
+	virtual string getName(const Current&);
+        virtual string getResponseForChallenge(const string& challenge, const Current&);
+};

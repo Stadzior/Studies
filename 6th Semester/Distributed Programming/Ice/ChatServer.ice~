@@ -1,0 +1,8 @@
+module Chat {
+exception UserNotFound {};
+exception AuthenticationError {};
+sequence<string> chatRoomList;
+
+
+
+};

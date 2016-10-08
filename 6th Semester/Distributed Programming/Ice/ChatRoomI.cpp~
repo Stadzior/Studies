@@ -1,0 +1,29 @@
+#include <ChatRoomI.h>
+
+void ChatRoomI::sendMessageToAll(const UserPrx& user, const string& message, const Current&)
+{
+    //Wiadomość do wszystkich
+    cout<<user->getName()<<" , "<<this->getName()<<" : "<<message;
+}
+string ChatRoomI::getName(const Current&)
+{
+    //Nazwa ChatRoomu
+	return "Room1";
+}
+void ChatRoomI::enterRoom(const UserPrx& user, const Current&)
+{
+    //Wejście do ChatRoomu
+	cout<<user->getName()<<" dołączył.";
+}
+void ChatRoomI::exitRoom(const UserPrx& user, const Current&)
+{
+    //Wyjście z ChatRoomu
+	cout<<user->getName()<<" wyszedł.";
+}
+userList ChatRoomI::getUsers(const Current&)
+{
+    //Lista użytkowników
+	userList users;
+	cout<<"Użytkownicy: ";
+	return users;
+}

@@ -1,0 +1,9 @@
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\bin\Debug\TextProcessing.exe.config
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\bin\Debug\TextProcessing.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\bin\Debug\TextProcessing.pdb
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.csprojResolveAssemblyReference.cache
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.frmMain.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.Properties.Resources.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.csproj.GenerateResource.Cache
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\TextProcessing\TextProcessing\obj\Debug\TextProcessing.pdb

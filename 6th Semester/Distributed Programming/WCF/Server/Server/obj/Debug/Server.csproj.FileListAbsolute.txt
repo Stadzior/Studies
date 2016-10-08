@@ -1,0 +1,6 @@
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\bin\Debug\Server.dll.config
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\bin\Debug\Server.dll
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\bin\Debug\Server.pdb
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\obj\Debug\Server.dll
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\obj\Debug\Server.pdb
+C:\Users\Mariusz\Desktop\studia\RSO\WCF\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache

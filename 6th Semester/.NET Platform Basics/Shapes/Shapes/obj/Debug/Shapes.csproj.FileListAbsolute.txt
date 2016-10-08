@@ -1,0 +1,9 @@
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\bin\Debug\Shapes.exe.config
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\bin\Debug\Shapes.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\bin\Debug\Shapes.pdb
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.csprojResolveAssemblyReference.cache
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.frmMain.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.Properties.Resources.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.csproj.GenerateResource.Cache
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\Shapes\Shapes\obj\Debug\Shapes.pdb

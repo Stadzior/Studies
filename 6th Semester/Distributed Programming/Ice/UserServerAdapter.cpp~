@@ -1,0 +1,33 @@
+#include <Ice/Ice.h>
+#include <UserI.h>
+using namespace std;
+using namespace Ice;
+
+int main(int argc, char* argv[])
+{
+	int status = 0;
+	CommunicatorPtr ic;
+	try {
+		ic = initialize(argc, argv);
+		ObjectAdapterPtr adapter = ic->createObjectAdapterWithEndpoints("UserAdapter","default -p 10000");
+		ObjectPtr object = new UserI;
+		adapter->add(object,ic->stringToIdentity("user"));
+		adapter->activate();
+		ic->waitForShutdown();
+	} catch (const Exception& e) {
+		cerr << e << endl;
+		status = 1;
+	} catch (const char* msg) {
+		cerr << msg << endl;
+		status = 1;
+	}
+	if (ic) {
+		try {
+			ic->destroy();
+		} catch (const Exception& e) {
+			cerr << e << endl;
+			status = 1;
+		}
+	}
+	return status;
+}

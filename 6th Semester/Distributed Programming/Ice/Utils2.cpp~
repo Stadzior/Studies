@@ -1,0 +1,48 @@
+#include <ChatServerI.h>
+
+void ChatServerI::registerUser(const string& username, const string& password, const Current&)
+{
+    //Rejestracja użytkownika
+	cout<<"rejestracja.";
+}
+
+void ChatServerI::login(const UserPrx& user, const Current&)
+{
+    //Logowanie użytkownika
+	cout<<"logowanie.";
+}
+
+void ChatServerI::logout(const UserPrx& user, const Current&)
+{
+    //Wylogowanie użytkownika
+	cout<<"wylogowanie.";
+}
+
+bool ChatServerI::isLoggedIn(const UserPrx& user, const Current&)
+{
+    //Czy użytkownik jest zalogowany
+	cout<<"czy zalogowany? true";
+	return true;
+}
+
+ChatRoomPrx ChatServerI::EnterRoom(const UserPrx& user, const string& roomName, const Current&)
+{
+    //Wejście do ChatRoomu
+	cout<<"wejście do pokoju";
+	ChatRoomPrx room;
+	return room;
+}
+
+chatRoomList ChatServerI::getList(const Current&)
+{
+	//Lista ChatRoomów
+	cout<<"Pokoje: ";
+	chatRoomList rooms;
+	return rooms;
+}
+
+void ChatServerI::registerChatFactory(const ChatFactoryPrx& chatFactory, const Current&)
+{
+    //Zarejestrowanie fabryki chatroomów???
+	cout<<"rejestracja fabryki";
+}

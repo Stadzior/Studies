@@ -1,0 +1,27 @@
+#include <UserI.h>
+
+void UserI::sendMessage(const string& message,const ChatRoomPrx& room,const UserPrx& user, const Current&)
+{
+    //Wysyłanie wiadomości
+	string prefix = "Sent: ";
+	cout<<.append(message)<<endl;
+}
+
+void UserI::sendPrivateMessage(const string& message,const UserPrx& user, const Current&)
+{
+    //Wysyłanie prywatnej wiadomości
+    cout<<message<<endl;
+}
+
+string UserI::getName(const Current&)
+{
+    //Pobierz imie użytkownika
+	cout<<"User1"<<endl;
+	return "User1";
+}
+
+string UserI::getResponseForChallenge(const string& challenge, const Current&)
+{
+    //Autentykacja
+	return "success";
+}

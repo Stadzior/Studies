@@ -1,0 +1,45 @@
+
+
+module Chat {
+
+exception UserNotFound {};
+exception AuthenticationError {};
+interface ChatRoom;
+interface ChatFactory;
+interface User {
+	void sendMessage(string message, ChatRoom* room, User* who);
+        void sendPrivateMessage(string message, User* who);
+	string getName();
+        string getResponseForChallenge(string challenge);
+};
+
+sequence<string> chatRoomList;
+sequence<User*> userList;
+
+interface ChatServer {
+  void registerUser(string username, string password);
+  void login(User* u) throws UserNotFound, AuthenticationError;
+  ChatRoom* EnterRoom(User* u, string room);
+  void logout(User* u);
+  bool isLoggedIn(User* u);
+  chatRoomList getList();
+  void registerChatFactory(ChatFactory* cf);
+};
+
+
+interface ChatRoom {
+	void sendMessageToAll(User* who, string message);
+        string getName();
+        void enterRoom(User* u);
+	void exitRoom(User* u);
+        userList getUsers();
+};
+
+interface ChatFactory {
+  ChatRoom* getNewChatRoom();
+  int getLoad();
+};
+
+};
+
+

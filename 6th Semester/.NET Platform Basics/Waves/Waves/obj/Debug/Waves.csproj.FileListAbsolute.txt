@@ -1,0 +1,9 @@
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\bin\Debug\Waves.exe.config
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\bin\Debug\Waves.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\bin\Debug\Waves.pdb
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.csprojResolveAssemblyReference.cache
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.frmMain.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.Properties.Resources.resources
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.csproj.GenerateResource.Cache
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.exe
+c:\users\mariusz\documents\visual studio 2015\Projects\Waves\Waves\obj\Debug\Waves.pdb

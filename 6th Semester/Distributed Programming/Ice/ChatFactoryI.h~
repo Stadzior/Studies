@@ -1,0 +1,10 @@
+#include <chat.h>
+
+using namespace Chat;
+using namespace Ice;
+
+class ChatFactoryI : public ChatFactory {
+public:
+  virtual ChatRoomPrx getNewChatRoom(const Current&);
+  virtual Int getLoad(const Current&);
+};

@@ -1,0 +1,13 @@
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriverTest.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriverTest.pdb
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\nunit.framework.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriver.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriver.Support.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\nunit.framework.xml
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriver.xml
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\WebDriver.Support.xml
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\obj\Debug\WebDriverTest.csprojResolveAssemblyReference.cache
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\obj\Debug\WebDriverTest.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\obj\Debug\WebDriverTest.pdb
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\Shouldly.dll
+c:\users\mariusz\documents\visual studio 2015\Projects\WebDriverTest\WebDriverTest\bin\Debug\Shouldly.pdb

@@ -1,0 +1,54 @@
+#include <Ice/Ice.h>
+#include "chat.h"
+#include <Utils.h>
+#include <string.h>
+
+using namespace std;
+using namespace Chat;
+using namespace Ice;
+
+void loginOrRegister(UserPrx user){
+	int check;
+	string challenge,response;
+	bool authSucceed = false;
+	do{
+		check = initialChoice();
+		challenge = gatherCreditentials();
+		switch(check){
+			case 1:
+				response = user->getResponseForChallenge(strcat(challenge,"/l"));
+			case 2:
+				response = user->getResponseForChallenge(strcat(challenge,"/r"));
+		authSucceed = response.compare("success")==0;
+		if(!authSucceed) "Failed to login, try again.";
+	}while(!authSucceed);
+}
+
+int main(int argc, char* argv[])
+{
+	int status = 0;
+	CommunicatorPtr ic;
+	try {
+		ic = initialize(argc, argv);
+		ObjectPrx base = ic->stringToProxy("user:tcp -p 10000");
+		UserPrx user = UserPrx::checkedCast(base);
+		if (!user) throw "Invalid proxy";
+		//loginOrRegister(user);
+		ChatRoomPrx room = selectAndEnterRoom();
+		string message;
+		while(1){
+			cin>>message;
+			user->sendMessage("heheszki",room,user);
+		}
+		ic->waitForShutdown();
+	} catch (const Exception& ex) {
+		cerr << ex << endl;
+		status = 1;
+	} catch (const char* msg) {
+		cerr << msg << endl;
+		status = 1;
+	}
+	if (ic)
+	ic->destroy();
+	return status;
+}

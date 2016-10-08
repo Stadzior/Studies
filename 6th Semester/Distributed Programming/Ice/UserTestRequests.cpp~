@@ -1,0 +1,28 @@
+#include <Ice/Ice.h>
+#include "chat.h"
+using namespace std;
+using namespace Chat;
+using namespace Ice;
+
+int main(int argc, char* argv[])
+{
+	int status = 0;
+	CommunicatorPtr ic;
+	try {
+		ic = initialize(argc, argv);
+		ObjectPrx base = ic->stringToProxy("user:default -p 10000");
+		UserPrx user = UserPrx::checkedCast(base);
+		if (!user) throw "Invalid proxy";
+		user->getName();
+		user->getResponseForChallenge("No dawaj na solo");
+	} catch (const Exception& ex) {
+		cerr << ex << endl;
+		status = 1;
+	} catch (const char* msg) {
+		cerr << msg << endl;
+		status = 1;
+	}
+	if (ic)
+	ic->destroy();
+	return status;
+}

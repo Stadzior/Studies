@@ -1,0 +1,15 @@
+#include <ChatFactoryI.h>
+
+ChatRoomPrx ChatFactoryI::getNewChatRoom(const Current&)
+{
+    //Tworzenie ChatRoom
+	ChatRoomPrx room;
+	cout<<"Stworzono pokój: "<<room->getName(Current&);
+	return room;
+}
+Int ChatFactoryI::getLoad(const Current&)
+{
+    //???
+	cout<<"Obciążenie serwera: ";
+	return 1;
+}
